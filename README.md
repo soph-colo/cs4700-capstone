@@ -1,4 +1,4 @@
-# Brain Controlled Drone: Using Brainwaves to Operate a Drone in Flight
+# NeuroDrone: Brainwave-Controlled System
 
 ### Descrption
 
