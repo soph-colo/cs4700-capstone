@@ -3,6 +3,10 @@ from itertools import count
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import AsyncIOOSCUDPServer
 
+from codrone_edu.drone import *
+drone = Drone()
+
+
 
 data_all = []
 
@@ -11,13 +15,27 @@ def process_data(address, *args):
     data_all.append(address)
     
 async def run_script():
-    while True:
+
+    # pair it 
+    drone.pair()
+    drone.takeoff()
+
+    n = 'y'
+
+    while n == 'y':
 
         print("Running script")
         print("data here",data_all)
 
-        if data_all.count("/com/neutral") > 10:
+        if (data_all.count("/com/neutral") > 20) and (data_all.count("/com/neutral") < 100):
             print("now we go neutral")  # assign the prompt for the drone to go neutral
+            drone.set_throttle(15)
+            drone.move(1)
+            drone.set_throttle(0)
+            drone.move(1)
+        elif (data_all.count("/com/neutral") >= 100):
+            drone.land()
+            drone.close()
 
         # drone flight here
         await asyncio.sleep(1)
