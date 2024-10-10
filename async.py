@@ -6,8 +6,6 @@ from pythonosc.osc_server import AsyncIOOSCUDPServer
 from codrone_edu.drone import *
 drone = Drone()
 
-
-
 data_all = []
 
 def process_data(address, *args):
@@ -27,8 +25,10 @@ async def run_script():
         print("Running script")
         print("data here",data_all)
 
-        if (data_all.count("/com/neutral") > 20) and (data_all.count("/com/neutral") < 100):
+
+        if (data_all.count("/com/neutral") > 25) and (data_all.count("/com/neutral") < 100):
             print("now we go neutral")  # assign the prompt for the drone to go neutral
+            print("moving forward")
             drone.set_throttle(15)
             drone.move(1)
             drone.set_throttle(0)
@@ -36,6 +36,8 @@ async def run_script():
         elif (data_all.count("/com/neutral") >= 100):
             drone.land()
             drone.close()
+            print("landed")
+
 
         # drone flight here
         await asyncio.sleep(1)
