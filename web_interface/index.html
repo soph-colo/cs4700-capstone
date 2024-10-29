@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3D Cube Interface</title>
   <style>
-    /* Set a light gray background */
     body {
       margin: 0;
       display: flex;
@@ -50,6 +49,32 @@
     .control-button:hover {
       background-color: #25214b;
     }
+
+    /* Style for the image container */
+    #image-container {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%); /* Center vertically only */
+      display: none; /* Hide initially */
+    }
+
+    #image-container.left {
+      left: 30%; /* Position the image on the left */
+      transform: translateX(-50%);
+    }
+
+    #image-container.right {
+      right: 30%; /* Position the image on the right */
+      transform: translateX(50%);
+    }
+
+    #image-container img {
+      width: auto;  /* Set desired width */
+      height: 200px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -58,9 +83,17 @@
 
   <!-- Button Container -->
   <div class="button-container">
+    <button class="control-button" onclick="leftCube()">Left</button>
     <button class="control-button" onclick="pushCube()">Push</button>
     <button class="control-button" onclick="neutralCube()">Neutral</button>
     <button class="control-button" onclick="pullCube()">Pull</button>
+    <button class="control-button" onclick="rightCube()">Right</button>
+  </div>
+  
+
+  <!-- Image Container for displaying images -->
+  <div id="image-container">
+    <img id="action-image" src="" alt="Action Image">
   </div>
 
   <!-- Include the Three.js library -->
