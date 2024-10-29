@@ -57,13 +57,12 @@ async def fly_drone():
             # sends the command to the drone
             match drone_command:
                 case "/com/neutral":
-
                     # update consecutive neutral count
                     neutral_count += 1  
                     flight_history.append(0)  # 0 being neutral
                     print("Remain at neutral")  # TODO: remove these prints eventually
+                
                 case "/com/push":
-
                     neutral_count = 0  # resetting neutral count
                     flight_history.append(1)  # 1 being push
                     print("Move forward")
@@ -73,19 +72,59 @@ async def fly_drone():
                     drone.move(1)
                     drone.set_pitch(0)
                     drone.move(1)
+                
                 case "/com/pull":
-
                     neutral_count = 0  # resetting neutral count
                     flight_history.append(-1)  # -1 being pull
                     print("Move backward")
 
-                    # moving the drone backword one unit (30 pitch per second)
+                    # moving the drone backward one unit (30 pitch per second)
                     drone.set_pitch(-30)
                     drone.move(1)
                     drone.set_pitch(0)
                     drone.move(1)
-                case _:
+                
+                case "/com/left":
+                    neutral_count = 0 # resetting neutral count
+                    flight_history.append() # 
 
+                    # moving drone left one unit (30 pitch per second)
+                    drone.set_roll(-30)
+                    drone.move(1)
+                    drone.set_roll(0)
+                    drone.move(1)
+                
+                case "/com/right":
+                    neutral_count = 0 # resetting neutral count
+                    flight_history.append() # 
+
+                    # moving drone right one unit (30 pitch per second)
+                    drone.set_roll(30)
+                    drone.move(1)
+                    drone.set_roll(0)
+                    drone.move(1)
+                    
+                case "/com/lift":
+                    neutral_count = 0 # resetting neutral count
+                    flight_history.append() # 
+
+                    # moving drone up one unit (30 pitch per second)
+                    drone.set_throttle(30)
+                    drone.move(1)
+                    drone.set_roll(0)
+                    drone.move(1)
+
+                case "/com/drop":
+                    neutral_count = 0 # resetting neutral count
+                    flight_history.append() # 
+
+                    # moving drone down one unit (30 pitch per second)
+                    drone.set_roll(-30)
+                    drone.move(1)
+                    drone.set_roll(0)
+                    drone.move(1)
+
+                case _:
                     neutral_count = 0  # resetting neutral count
                     print("Data unclear, more input required")
 
