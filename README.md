@@ -23,6 +23,7 @@
 ### Resources
 
 #### Papers-
+[User Manual](https://docs.google.com/document/d/1TOmgRtyJ7HiYdHKH1SiblWzdcUdYRSt-XZ-MzhzJSG4/edit?usp=sharing)
 
 #### -Hardware-
 [Drone](https://stem-supplies.com/codrone-sets) 
