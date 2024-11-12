@@ -29,11 +29,11 @@ def process_data(address, *args):
     print(f"Received OSC message: {address}, {args}")
     data_all.append(address)
 
-# async method that handles the flight of the drone while also still receiving data
+# async method that handles the flight of the drone while still receiving data
 async def fly_drone():
 
     # variables
-    neutral_count = 0  # 10 or more consecutive neutrals end the program
+    neutral_count = 0  # 15 or more consecutive neutrals end the program
     n = True
 
     # using drone object, pair and have drone take off
@@ -62,7 +62,7 @@ async def fly_drone():
                     # update consecutive neutral count
                     neutral_count += 1  
                     flight_history.append(0)  # 0 being neutral
-                    print("Remain at neutral")  # TODO: remove these prints eventually
+                    print("Remain at neutral")
                 
                 case "/com/push":
                     neutral_count = 0  # resetting neutral count
@@ -105,7 +105,8 @@ async def fly_drone():
                     drone.move(1)
                     drone.set_roll(0)
                     drone.move(1)
-                    
+
+                #Future possible command
                 case "/com/lift":
                     neutral_count = 0 # resetting neutral count
                     flight_history.append() # 
@@ -116,6 +117,7 @@ async def fly_drone():
                     drone.set_roll(0)
                     drone.move(1)
 
+                #Future possible command
                 case "/com/drop":
                     neutral_count = 0 # resetting neutral count
                     flight_history.append() # 
@@ -137,7 +139,7 @@ async def fly_drone():
             del data_all[0:endpoint]
 
             # end the flight
-            if (neutral_count >= 10):
+            if (neutral_count >= 15):
                 drone.land()
                 drone.close()
                 n = False
