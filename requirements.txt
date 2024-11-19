@@ -1,0 +1,2 @@
+codrone-edu == 2.0
+python-osc == 1.9.0
