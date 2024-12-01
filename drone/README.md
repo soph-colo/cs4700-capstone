@@ -10,11 +10,14 @@
 #### Browser
 - Use micro USB cable to connect the remote to a laptop or computer
 - Turn the remote on and place the battery in the drone
-- Go to [Browser Environment] (https://codrone.robolink.com/edu/python/)
+- Go to [Browser Environment](https://codrone.robolink.com/edu/python/)
 - Click on Menu, then Open Python File
    - Navigate to the location of the Python file on your system
 
 #### PyCharm IDE
-- Set-up Pycharm following [these steps] (https://learn.robolink.com/lesson/0-3-pycharm-installation-cde/)
+- Set-up Pycharm following [these steps](https://learn.robolink.com/lesson/0-3-pycharm-installation-cde/)
 
 ### Capabilities
+- Flying forwards, backwards, left, and right using commands from the user
+- Landing using the headset
+- Adjusting to an environment to prevent collisions with surrounding objects
