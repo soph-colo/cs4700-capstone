@@ -8,5 +8,7 @@
      * Initial efforts at establishing an asynchronous process
 * drone
      * Initial flight tests for the drone using Python
+     * Decription of the drone's capabilities
+     * Explanation of pairing methods for the drone
 * headset/data_ingestion
      * Initial code attempts at establishing a connection between the headset and computer and receiving live data
