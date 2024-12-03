@@ -1,6 +1,10 @@
 # NeuroDrone: Brainwave-Controlled System
 
 ### Description
+NeuroDrone’s goal is to control a drone with one’s brain activity. This Brain-Computer Interface (BCI) technology can be used across many different disciplines, from healthcare to gaming. BCI technology replaces a physical remote with one’s brain to control hardware and software. This kind of technology can aid those who are physically limited, allowing them to use hardware or software without a physical remote.
+
+This project contains three main features: the headset, the drone, and the software. These three components work together to allow for drone flight via headset control. The headset will connect to the user’s computer, which has both the headset’s software and the drone flight software installed. The computer, which will be connected to the drone’s remote, will run the headset’s live data stream software as well as the drone flight script. From there, the user wearing the headset will be able to think of pre-trained commands that will fly the drone in real-time. As of now, the audience for this product is fellow students who are looking to iterate and improve the current system.
+
 
 ### Instructions
 * (Please refer to user manual for more detailed instructions and troubleshooting guidance)
@@ -18,7 +22,6 @@
 * Select Start at the bottom of the page
 * Run the code in your IDE
 
-### Timeline
 
 ### Resources
 
