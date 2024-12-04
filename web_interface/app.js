@@ -23,18 +23,18 @@ function init() {
   // Create a box geometry for the cube
   const geometry = new THREE.BoxGeometry(CUBE_SIZE, CUBE_SIZE, CUBE_SIZE);
 
-  // Create materials for each face 
-  const materials = [
-    createCircleMaterial('#EEEEEE', '#ff8080'), // Face 1: Light gray background, red circle (back right face, will be hidden)
-    createCircleMaterial('#969696', '#4B7F80'), // Face 2: Darker gray background, teal circle (left face)
-    createCircleMaterial('#FFFFFF', '#ADEAFC'), // Face 3: White background, light blue circle (top face)
-    createCircleMaterial('#FFFFFF', '#ffb380'), // Face 4: White background, orange circle (botten face, will be hidden)
-    createCircleMaterial('#EEEEEE', '#BBA5E8'), // Face 5: Light gray background, purple circle (right face)
-    createCircleMaterial('#969696', '#958D48')  // Face 6: Darker gray, yellow circle (back left face, will be hidden)
+  // Create each face of the cube 
+  const faces = [
+    createCubeFace('#EEEEEE', '#ff8080'), // Face 1: Light gray background, red circle (back right face, will be hidden)
+    createCubeFace('#969696', '#4B7F80'), // Face 2: Darker gray background, teal circle (left face)
+    createCubeFace('#FFFFFF', '#ADEAFC'), // Face 3: White background, light blue circle (top face)
+    createCubeFace('#FFFFFF', '#ffb380'), // Face 4: White background, orange circle (botten face, will be hidden)
+    createCubeFace('#EEEEEE', '#BBA5E8'), // Face 5: Light gray background, purple circle (right face)
+    createCubeFace('#969696', '#958D48')  // Face 6: Darker gray, yellow circle (back left face, will be hidden)
   ];
 
-  // Apply the materials to each face of the cube
-  cube = new THREE.Mesh(geometry, materials);
+  // Apply the configurations to each face of the cube
+  cube = new THREE.Mesh(geometry, faces);
   scene.add(cube);
 
   // Rotate cube to show three faces, centered on an edge
@@ -44,8 +44,8 @@ function init() {
   animate();
 }
 
-// Function to create a material with a colored circle on a colored background
-function createCircleMaterial(bgColor, circleColor) {
+// Function to create a face with a colored circle on a colored background
+function createCubeFace(bgColor, circleColor) {
   const canvas = document.createElement('canvas');
   canvas.width = 256;
   canvas.height = 256;
@@ -98,6 +98,7 @@ function updateCube() {
     if (elapsedTime >= 5) {
       action = "neutral";  // Transition to neutral after 5 seconds
       elapsedTime = 5;     // Cap the elapsed time to 5 seconds
+      hideImage();         // Hide the image after 5 seconds
     }
 
     if (action === "push") {
@@ -121,22 +122,22 @@ function updateCube() {
 // Button Event Handlers
 function pushCube() {
   startAction("push");
-  showImage("./images/push.jpg", "center"); // Show the push image centered
+  //showImage("./images/push.jpg", "center"); // Show the push image centered
 }
 
 function pullCube() {
   startAction("pull");
-  showImage("./images/pull.jpg", "center"); // Show the pull image centered
+  //showImage("./images/pull.jpg", "center"); // Show the pull image centered
 }
 
 function leftCube() {
   startAction("left");
-  showImage("./images/left.jpg", "left"); // Show the left image on the left side
+  //showImage("./images/left.jpg", "left"); // Show the left image on the left side
 }
 
 function rightCube() {
   startAction("right");
-  showImage("./images/right.jpg", "right"); // Show the right image on the right side
+  //showImage("./images/right.jpg", "right"); // Show the right image on the right side
 }
 
 function neutralCube() {
@@ -145,7 +146,9 @@ function neutralCube() {
 }
 
 function startAction(newAction) {
-  // Reset cube to the neutral position and scale whenever a new action starts
+  // Reset cube to the neutral position and scale and hides any existing image whenever a new action starts
+  hideImage(); // This allows images to be used for some commands but not all
+    
   cube.position.set(0, 0, 0);
   cube.scale.set(1, 1, 1);
   
