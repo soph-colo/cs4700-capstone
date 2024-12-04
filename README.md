@@ -29,8 +29,8 @@ This project contains three main features: the headset, the drone, and the softw
 [User Manual](https://docs.google.com/document/d/1TOmgRtyJ7HiYdHKH1SiblWzdcUdYRSt-XZ-MzhzJSG4/edit?usp=sharing)
 
 #### Hardware:
-[Drone](https://stem-supplies.com/codrone-sets) 
-[Drone #2](https://www.robolink.com/products/codrone-edu?srsltid=AfmBOopyD80paVAth3qMXyuKqlkVacBk_henI6TgU5WIVpTGfWC-EGCe)
-[Headset](https://www.emotiv.com/products/insight)
+[CoDrone Pro](https://stem-supplies.com/codrone-sets) |
+[CoDrone EDU](https://www.robolink.com/products/codrone-edu?srsltid=AfmBOopyD80paVAth3qMXyuKqlkVacBk_henI6TgU5WIVpTGfWC-EGCe) |
+[Emotiv Insight 5 Headset](https://www.emotiv.com/products/insight)
 
 
